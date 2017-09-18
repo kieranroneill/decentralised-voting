@@ -1,0 +1,21 @@
+{
+  "name": "decentralised-voting",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A simple voting app built on the Ethereum network.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kieranroneill/decentralised-voting.git"
+  },
+  "author": "Kieran O'Neill <kieranroneill@googlemail.com>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "scripts": {
+    "testrpc": "node_modules/.bin/testrpc"
+  },
+  "devDependencies": {
+    "ethereumjs-testrpc": "^4.1.3",
+    "solc": "^0.4.16",
+    "web3": "0.20.1"
+  }
+}
