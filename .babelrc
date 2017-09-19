@@ -1,0 +1,11 @@
+{
+    "plugins": [
+        "istanbul",
+        "transform-class-properties",
+        "transform-object-assign",
+        "transform-object-rest-spread"
+    ],
+    "presets": [
+        "es2015"
+    ]
+}

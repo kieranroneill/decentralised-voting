@@ -45,6 +45,11 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+### Test
+coverage/
+.nyc_output/
+test-results.xml
+
 ### Build
 build/
 
