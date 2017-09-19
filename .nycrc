@@ -1,0 +1,22 @@
+{
+    "all": true,
+    "cache": true,
+    "exclude": [
+        "src/**/*.test.js"
+    ],
+    "extension": [
+        ".js"
+    ],
+    "include": [
+        "src/**/*"
+    ],
+    "instrument": false,
+    "reporter": [
+        "lcov",
+        "text-summary"
+    ],
+    "require": [
+        "babel-register"
+    ],
+    "sourceMap": false
+}
