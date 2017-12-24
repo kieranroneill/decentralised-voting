@@ -1,5 +1,5 @@
 <template>
-    <h1>{{ message }}</h1>
+    <h1 class="app-header">{{ message }}</h1>
 </template>
 
 <script>
@@ -13,6 +13,10 @@
     };
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    .app {
+        &-header {
+             color: red;
+         }
+    }
 </style>

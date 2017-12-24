@@ -1,3 +1,4 @@
+import autoprefixer from 'autoprefixer';
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import { join, resolve } from 'path';
 import webpack from 'webpack';
@@ -38,16 +39,24 @@ export const loaders = [
     // Style loaders.
     {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
     },
 
-    // Image loaders.
+    // Assets loaders.
     {
-        test: /\.jpg$/,
+        test: /\.gif/,
         loader: 'url-loader',
         options: {
             limit: uriLimit,
-            mimeType: 'image/png'
+            mimeType: 'image/gif'
+        }
+    },
+    {
+        test: /\.jpg/,
+        loader: 'url-loader',
+        options: {
+            limit: uriLimit,
+            mimeType: 'image/jpeg'
         }
     },
     {
@@ -63,7 +72,7 @@ export const loaders = [
         loader: 'url-loader',
         options: {
             limit: uriLimit,
-            mimeType: 'image/svg'
+            mimeType: 'image/svg+xml'
         }
     }
 ];
@@ -76,6 +85,13 @@ export const plugins = [
         'process.env': {
             APP_VERSION: JSON.stringify(packageJson.version),
             NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'), // Default to development.
+        }
+    }),
+    new webpack.LoaderOptionsPlugin({
+        options: {
+            postcss: () => [
+                autoprefixer({ browsers: ['last 3 versions'] })
+            ]
         }
     })
 ];
