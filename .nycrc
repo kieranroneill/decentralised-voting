@@ -10,7 +10,7 @@
         "webpack/**"
     ],
     "extension": [
-        ".jsx"
+        ".js"
     ],
     "instrument": false,
     "reporter": [

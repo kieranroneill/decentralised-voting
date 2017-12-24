@@ -1,10 +1,12 @@
 <template>
-    <h1 class="app-header">{{ message }}</h1>
+    <h1 class="app-header">
+        {{ message }}
+    </h1>
 </template>
 
 <script>
     export default {
-        name: 'app',
+        name: 'App',
         data: () => {
             return {
                 message: 'Hello World!'
