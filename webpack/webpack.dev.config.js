@@ -24,7 +24,19 @@ export default {
     ].concat(entry),
 
     module: {
-        rules: loaders
+        rules: [
+            // Script loaders.
+            {
+                test: /\.vue$/,
+                use: 'vue-loader'
+            },
+
+            // Style loaders.
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+            }
+        ].concat(loaders)
     },
 
     output: {

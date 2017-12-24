@@ -1,36 +1,85 @@
-const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+import CleanPlugin from 'clean-webpack-plugin';
+import ExtractTextPlugin, { extract } from 'extract-text-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { join, resolve } from 'path';
+import webpack from 'webpack';
 
-module.exports = {
-  entry: './app/javascripts/app.js',
-  output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'app.js'
-  },
-  plugins: [
-    // Copy our app's index.html to the build folder.
-    new CopyWebpackPlugin([
-      { from: './app/index.html', to: "index.html" }
-    ])
-  ],
-  module: {
-    rules: [
-      {
-       test: /\.css$/,
-       use: [ 'style-loader', 'css-loader' ]
-      }
-    ],
-    loaders: [
-      { test: /\.json$/, use: 'json-loader' },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015'],
-          plugins: ['transform-runtime']
-        }
-      }
-    ]
-  }
-}
+// Common config.
+import { distPath, entry, extensions, loaders, plugins, alias, srcPath, title } from './common.config';
+
+export default {
+    devtool: false,
+
+    entry,
+
+    module: {
+        rules: loaders.concat([
+            // Script loaders.
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        scss: extract({
+                            fallback: 'style-loader',
+                            use: ['css-loader', 'postcss-loader', 'sass-loader']
+                        })
+                    },
+                    extractCSS: true
+                }
+            },
+
+            // Style loaders.
+            {
+                test: /\.scss$/,
+                use: extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'postcss-loader', 'sass-loader']
+                })
+            }
+        ])
+    },
+
+    output: {
+        path: distPath,
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[chunkhash].js'
+    },
+
+    plugins: plugins.concat([
+        new CleanPlugin(['dist'], {
+            root: join(__dirname, '..')
+        }),
+        new ExtractTextPlugin({
+            filename: 'styles.[hash].css',
+            allChunks: true
+        }),
+        new HtmlWebpackPlugin({
+            inject: 'body',
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                minifyJS: true,
+                minifyCSS: true
+            },
+            template: resolve(srcPath, 'index.hbs'),
+            title
+        }),
+        new webpack.optimize.MinChunkSizePlugin({
+            minChunkSize: 50000, // 50kb
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            comments: false,
+            compress: {
+                warnings: false
+            },
+            sourceMap: false,
+            mangle: true
+        })
+    ]),
+
+    resolve: {
+        alias,
+        extensions
+    }
+};
