@@ -1,3 +1,4 @@
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import { join, resolve } from 'path';
 import webpack from 'webpack';
 
@@ -8,6 +9,8 @@ const uriLimit = 50000; // 50kb
 
 export const distPath = join(__dirname, '..', 'dist');
 export const srcPath = join(__dirname, '..', 'src');
+export const title = 'Decentralised Voting System';
+
 export const alias = {
     vue: 'vue/dist/vue.common.js',
 };
@@ -65,6 +68,10 @@ export const loaders = [
     }
 ];
 export const plugins = [
+    new FaviconsWebpackPlugin({
+        logo: resolve(srcPath, 'favicon.png'),
+        title
+    }),
     new webpack.DefinePlugin({
         'process.env': {
             APP_VERSION: JSON.stringify(packageJson.version),
@@ -72,4 +79,3 @@ export const plugins = [
         }
     })
 ];
-export const title = 'Decentralised Voting System';
