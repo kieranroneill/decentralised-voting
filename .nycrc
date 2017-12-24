@@ -1,14 +1,16 @@
 {
-    "all": true,
+    "all": false,
     "cache": true,
     "exclude": [
-        "src/**/*.test.js"
+        "**/node_modules/**",
+        "coverage/**",
+        "dist/**/*",
+        "src/**/*.test.{js,jsx}",
+        "test/**",
+        "webpack/**"
     ],
     "extension": [
-        ".js"
-    ],
-    "include": [
-        "src/**/*"
+        ".jsx"
     ],
     "instrument": false,
     "reporter": [
