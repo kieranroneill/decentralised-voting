@@ -1,12 +1,15 @@
-// Allows us to use ES6 in our migrations and tests.
-require('babel-register')
+import { join } from 'path';
 
-module.exports = {
-  networks: {
-    development: {
-      host: 'localhost',
-      port: 8545,
-      network_id: '*' // Match any network id
+export default {
+    contracts_build_directory: join(__dirname, 'dist'),
+
+    migrations_directory: join(__dirname, 'src', 'migrations'),
+
+    networks: {
+        development: {
+            host: 'localhost',
+            port: 8545,
+            network_id: '*' // Match any network id
+        }
     }
-  }
-}
+};

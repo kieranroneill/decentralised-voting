@@ -32,6 +32,12 @@ export const loaders = [
         use: 'babel-loader'
     },
 
+    // Contract loaders.
+    {
+        test: /\.sol$/,
+        use: 'truffle-solidity'
+    },
+
     // Assets loaders.
     {
         test: /\.gif/,

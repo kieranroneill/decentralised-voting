@@ -27,7 +27,7 @@ export default {
             },
             {
                 test: /\.vue$/,
-                use: 'null-loader',
+                use: 'vue-loader'
             },
 
             // Style loaders.
@@ -45,7 +45,5 @@ export default {
     resolve: {
         alias,
         extensions
-    },
-
-    target: 'node'
+    }
 };
