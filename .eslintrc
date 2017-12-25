@@ -10,9 +10,11 @@
         "plugin:vue/recommended"
     ],
     "globals": {
+        "artifacts": true,
         "assert": true,
         "expect": true,
         "match": true,
+        "mock": true,
         "spy": true,
         "stub": true
     },

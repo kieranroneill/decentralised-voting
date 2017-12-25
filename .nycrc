@@ -4,13 +4,16 @@
     "exclude": [
         "**/node_modules/**",
         "coverage/**",
-        "dist/**/*",
-        "src/**/*.test.{js,jsx}",
+        "dist/**",
+        "src/**/*.test.js",
+        "src/app/**",
+        "src/migrations/**",
         "test/**",
         "webpack/**"
     ],
     "extension": [
-        ".js"
+        ".js",
+        ".vue"
     ],
     "instrument": false,
     "reporter": [

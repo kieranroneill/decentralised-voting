@@ -9,8 +9,11 @@
         name: 'App',
         data: () => {
             return {
-                message: 'Hello World!'
+                message: null
             };
+        },
+        mounted: function () {
+            this.message = 'Hello World!';
         }
     };
 </script>

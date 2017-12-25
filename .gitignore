@@ -76,7 +76,7 @@ junit/
 dist/
 
 ### Dependencies
-node_modules
+node_modules/
 
 ### Yarn
 .yarnclean
