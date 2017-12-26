@@ -34,11 +34,15 @@ export const loaders = [
 
     // Contract loaders.
     {
-        test: /\.sol$/,
-        use: 'truffle-solidity'
+        test: /\.sol/,
+        use: 'truffle-solidity-loader'
     },
 
     // Assets loaders.
+    {
+        test: /\.json$/i,
+        use: 'json-loader'
+    },
     {
         test: /\.gif/,
         loader: 'url-loader',

@@ -71,7 +71,6 @@
         "webpack-notifier": "^1.5.0"
     },
     "dependencies": {
-        "truffle-contract": "^3.0.0",
         "vue": "^2.5.13",
         "web3": "0.20.1"
     }

@@ -4,6 +4,8 @@ import nodeExternals from 'webpack-node-externals';
 import { alias, extensions } from './common.config';
 
 export default {
+    devtool: 'inline-cheap-module-source-map',
+
     externals: [
         nodeExternals()
     ],
@@ -30,6 +32,18 @@ export default {
                 use: 'vue-loader'
             },
 
+            // Asset loader.
+            {
+                test: /\.json$/i,
+                use: 'json-loader'
+            },
+
+            // Contract loaders.
+            {
+                test: /\.sol/,
+                use: 'truffle-solidity-loader'
+            },
+
             // Style loaders.
             {
                 test: /\.scss$/,
@@ -40,6 +54,11 @@ export default {
                 use: 'null-loader'
             }
         ]
+    },
+
+    output: {
+        devtoolModuleFilenameTemplate: '[absolute-resource-path]',
+        devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hash]'
     },
 
     resolve: {

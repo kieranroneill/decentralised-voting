@@ -1,38 +1,30 @@
 <template>
-    <h1 class="app-header">
-        {{ message }}
-    </h1>
+    <h1 class="app-header">Hello World!</h1>
 </template>
 
 <script>
-    import { default as Web3 } from 'web3';
+    //import MetaCoin from '../../contracts/MetaCoin/MetaCoin.sol';
 
     export default {
         name: 'App',
+        props: {
+            isNetworkRunning: { // TODO: handle no Ethereum network running.
+                type: Boolean,
+                default: false
+            }
+        },
         data: function () {
             return {
-                message: null
+                metaCoinContract: null
             };
         },
 
         // Life cycle methods.
         mounted: function () {
-            window.addEventListener('load', this.onLoadListener);
+            if (this.isNetworkRunning) {
+                this.metaCoinContract = MetaCoin;
 
-            this.message = 'Hello World!';
-        },
-        destroyed: function () {
-            window.removeEventListener('load', this.onLoadListener);
-        },
-
-        // Methods.
-        methods: {
-            onLoadListener: function () {
-                if (!window.web3) {
-                    return; // TODO: handle no Ethereum network running.
-                }
-
-                window.web3 = new Web3(window.web3.currentProvider);
+                this.metaCoinContract.setProvider(window.web3.currentProvider);
             }
         }
     };
