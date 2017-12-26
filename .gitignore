@@ -76,6 +76,7 @@ junit/
 dist/
 
 ### Dependencies
+.truffle-solidity-loader/
 node_modules/
 
 ### Yarn

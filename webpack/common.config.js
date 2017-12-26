@@ -13,7 +13,7 @@ export const srcPath = join(__dirname, '..', 'src');
 export const title = 'Decentralised Voting System';
 
 export const alias = {
-    vue: 'vue/dist/vue.common.js',
+    vue: 'vue/dist/vue.common.js'
 };
 export const entry = [
     resolve(srcPath, 'index.js')
@@ -34,7 +34,7 @@ export const loaders = [
 
     // Contract loaders.
     {
-        test: /\.sol/,
+        test: /\.sol$/,
         use: 'truffle-solidity-loader'
     },
 

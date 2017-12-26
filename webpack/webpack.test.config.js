@@ -40,7 +40,7 @@ export default {
 
             // Contract loaders.
             {
-                test: /\.sol/,
+                test: /\.sol$/,
                 use: 'truffle-solidity-loader'
             },
 
@@ -64,5 +64,7 @@ export default {
     resolve: {
         alias,
         extensions
-    }
+    },
+
+    target: 'node'
 };

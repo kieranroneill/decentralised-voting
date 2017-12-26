@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    //import MetaCoin from '../../contracts/MetaCoin/MetaCoin.sol';
+    import MetaCoin from '../../contracts/MetaCoin/MetaCoin.sol';
 
     export default {
         name: 'App',
