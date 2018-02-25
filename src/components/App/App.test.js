@@ -2,7 +2,7 @@ import Vue from 'vue';
 import { default as Web3 } from 'web3';
 
 // Contracts.
-import MetaCoin from '../../contracts/MetaCoin/MetaCoin.sol';
+import MetaCoin from '../../contracts/MetaCoin.sol';
 
 // Component.
 import App from './App';

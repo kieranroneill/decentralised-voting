@@ -1,9 +1,13 @@
 <template>
-    <h1 class="app-header">Hello World!</h1>
+    <div>
+        <h1 class="app-header">Hello World!</h1>
+        <p v-if="isNetworkRunning">Network connected!</p>
+        <p v-else>Network not connected!</p>
+    </div>
 </template>
 
 <script>
-    import MetaCoin from '../../contracts/MetaCoin/MetaCoin.sol';
+    import Voting from '../../contracts/Voting/Voting.sol';
 
     export default {
         name: 'App',
@@ -22,9 +26,11 @@
         // Life cycle methods.
         mounted: function () {
             if (this.isNetworkRunning) {
-                this.metaCoinContract = MetaCoin;
-
-                this.metaCoinContract.setProvider(window.web3.currentProvider);
+                // this.metaCoinContract = Voting;
+                //
+                // this.metaCoinContract.setProvider(window.web3.currentProvider);
+                //
+                // console.log(Voting);
             }
         }
     };

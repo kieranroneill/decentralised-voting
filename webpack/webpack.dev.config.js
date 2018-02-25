@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import webpack from 'webpack';
 import WebpackNotifierPlugin from 'webpack-notifier';
 
-// Common config.
+// Config.
 import { alias, distPath, entry, extensions, loaders, plugins, srcPath, title } from './common.config';
 
 const localhost = 'http://localhost';

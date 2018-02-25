@@ -1,13 +1,18 @@
-import { join } from 'path';
+const path = require('path');
 
-export default {
-    migrations_directory: join(__dirname, 'src', 'migrations'),
+module.exports = {
+    contracts_directory: path.join(__dirname, 'src', 'contracts'),
+
+    contracts_build_directory: path.join(__dirname, 'dist', 'contracts'),
+
+    migrations_directory: path.join(__dirname, 'migrations'),
 
     networks: {
         development: {
-            host: 'localhost',
+            host: '127.0.0.1',
             port: 8545,
-            network_id: '*' // Match any network id
+            network_id: '*', // Match any network id
+            gas: 470000
         }
     }
 };
