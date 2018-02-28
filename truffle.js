@@ -1,3 +1,6 @@
+require('babel-register');
+require('babel-polyfill');
+
 const path = require('path');
 
 module.exports = {
@@ -11,8 +14,7 @@ module.exports = {
         development: {
             host: '127.0.0.1',
             port: 8545,
-            network_id: '*', // Match any network id
-            gas: 470000
+            network_id: '*' // Match any network id
         }
     }
 };

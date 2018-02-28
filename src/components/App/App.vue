@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import Voting from '../../contracts/Voting/Voting.sol';
+    import Ballot from '../../contracts/Ballot.sol';
 
     export default {
         name: 'App',

@@ -1,5 +1,5 @@
-const Voting = artifacts.require('../src/contracts/Voting/Voting.sol');
+const Ballot = artifacts.require('../src/contracts/Ballot/Ballot.sol');
 
 module.exports = function(deployer) {
-    deployer.deploy(Voting, ['Rama', 'Nick', 'Jose'], { gas: 6700000 });
+    deployer.deploy(Ballot, ['0000', '1111', '2222'], { gas: 300000 });
 };
