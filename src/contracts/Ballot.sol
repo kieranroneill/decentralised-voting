@@ -31,15 +31,6 @@ contract Ballot {
         return false;
     }
 
-//    /**
-//     * @notice Gets the total votes for a candidate by name.
-//     * @param candidate A list of candidates who will be participating in the election.
-//     */
-//    function totalVotesByName(bytes32 candidate) view public returns (uint8) {
-//        require(validCandidate(candidate));
-//        return votesReceived[candidate];
-//    }
-
     /**
      * @notice Votes for the specified candidate.
      * @param candidate The candidate to vote.

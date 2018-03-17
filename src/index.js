@@ -1,4 +1,5 @@
-import Vue from 'vue';
+import { createElement } from 'react';
+import { render } from 'react-dom';
 import { default as Web3 } from 'web3';
 
 // General styles.
@@ -15,11 +16,7 @@ export function onWindowLoad() {
         window.web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:8545'));
     }
 
-    return new Vue({
-        el: '#app',
-        components: { App },
-        template: `<App v-bind:is-network-running="${window.web3.isConnected()}" />`
-    });
+    return render(createElement(App, { isNetworkConnected: window.web3.isConnected() }), document.getElementById('app'));
 }
 
 window.addEventListener('load', onWindowLoad);

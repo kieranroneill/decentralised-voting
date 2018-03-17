@@ -1,29 +1,37 @@
-# truffle-init-webpack
-Example webpack project with Truffle. Includes contracts, migrations, tests, user interface and webpack build pipeline.
+# Decentralised Voting System
 
-## Usage
+A simple voting app built on the Ethereum network.
 
-To initialize a project with this example, run `truffle init webpack` inside an empty directory.
+#### Table Of Contents
 
-## Building and the frontend
+* [Requirements](#requirements)
+* [Development](#development)
+* [Testing](#testing)
 
-1. First run `truffle compile`, then run `truffle migrate` to deploy the contracts onto your network of choice (default "development").
-1. Then run `npm run dev` to build the app and serve it on http://localhost:8080
+## Requirements
 
-## Possible upgrades
+In order to get started, you will need: 
 
-* Use the webpack hotloader to sense when contracts or javascript have been recompiled and rebuild the application. Contributions welcome!
+* Install [Node](https://nodejs.org) (>= v8.10.0).
+* Install [Yarn](https://yarnpkg.com).
 
-## Common Errors
+## Development
 
-* **Error: Can't resolve '../build/contracts/MetaCoin.json'**
+1. Install the dependencies using `yarn install`
+2. Run `yarn start`
+3. Navigate to [http://localhost:1337](http://localhost:1337)
 
-This means you haven't compiled or migrated your contracts yet. Run `truffle compile` and `truffle migrate` first.
+## Testing
 
-Full error:
+Unit testing is performed using:
 
+* [Mocha](https://mochajs.org/) for running the tests.
+* [Chai](http://chaijs.com/) for assertions.
+* [Sinon](http://sinonjs.org/) for spys, stubs and mocking.
+* [Istanbul](https://istanbul.js.org/) for test coverage.
+
+To run the unit tests simply run:
+```bash
+yarn test
 ```
-ERROR in ./app/main.js
-Module not found: Error: Can't resolve '../build/contracts/MetaCoin.json' in '/Users/tim/Documents/workspace/Consensys/test3/app'
- @ ./app/main.js 11:16-59
-```
+Once the tests have been completed, coverage reports will be added to a `/coverage` directory.

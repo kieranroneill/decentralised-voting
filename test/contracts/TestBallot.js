@@ -32,7 +32,7 @@ contract('Ballot', async () => {
     });
 
     context('vote()', async () => {
-        it('should not vote for an invalid candidate', async () => {
+        it('should throw and error if the candidate is invalid', async () => {
             let error;
 
             try {

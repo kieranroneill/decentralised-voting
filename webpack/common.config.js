@@ -12,13 +12,10 @@ export const distPath = join(__dirname, '..', 'dist');
 export const srcPath = join(__dirname, '..', 'src');
 export const title = 'Decentralised Voting System';
 
-export const alias = {
-    vue: 'vue/dist/vue.common.js'
-};
 export const entry = [
     resolve(srcPath, 'index.js')
 ];
-export const extensions = ['.js', '.vue'];
+export const extensions = ['.js', '.jsx'];
 export const loaders = [
     // HTML loaders.
     {
@@ -28,14 +25,8 @@ export const loaders = [
 
     // Script loaders.
     {
-        test: /.js$/,
+        test: /.jsx?$/,
         use: 'babel-loader'
-    },
-
-    // Contract loaders.
-    {
-        test: /\.sol$/,
-        use: 'truffle-solidity-loader'
     },
 
     // Assets loaders.

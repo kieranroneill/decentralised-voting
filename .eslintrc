@@ -7,7 +7,7 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:vue/recommended"
+        "plugin:react/recommended"
     ],
     "globals": {
         "artifacts": true,
@@ -16,6 +16,8 @@
         "expect": true,
         "match": true,
         "mock": true,
+        "mount": true,
+        "shallow": true,
         "spy": true,
         "stub": true
     },
@@ -24,6 +26,9 @@
         "ecmaVersion": 6,
         "sourceType": "module"
     },
+    "plugins": [
+        "react"
+    ],
     "rules": {
         "eol-last": ["error", "always"],
         "linebreak-style": ["error", "unix"],
@@ -31,11 +36,6 @@
         "max-len": ["error", 140, { "ignoreComments": true }],
         "quote-props": ["error", "consistent-as-needed"],
         "quotes": ["error", "single"],
-        "semi": ["error", "always"],
-
-        "vue/html-indent": ["error", 4, {
-            "attribute": 1,
-            "closeBracket": 0
-        }]
+        "semi": ["error", "always"]
     }
 }

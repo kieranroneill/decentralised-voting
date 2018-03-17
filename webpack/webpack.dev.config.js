@@ -4,7 +4,7 @@ import webpack from 'webpack';
 import WebpackNotifierPlugin from 'webpack-notifier';
 
 // Config.
-import { alias, distPath, entry, extensions, loaders, plugins, srcPath, title } from './common.config';
+import { distPath, entry, extensions, loaders, plugins, srcPath, title } from './common.config';
 
 const localhost = 'http://localhost';
 const port = 1337;
@@ -25,12 +25,6 @@ export default {
 
     module: {
         rules: [
-            // Script loaders.
-            {
-                test: /\.vue$/,
-                use: 'vue-loader'
-            },
-
             // Style loaders.
             {
                 test: /\.scss$/,
@@ -61,7 +55,6 @@ export default {
     ]),
 
     resolve: {
-        alias,
         extensions
     }
 };

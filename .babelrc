@@ -4,7 +4,7 @@
         "transform-class-properties"
     ],
     "presets": [
-        "es2015",
-        "stage-3"
+        "env",
+        "react"
     ]
 }

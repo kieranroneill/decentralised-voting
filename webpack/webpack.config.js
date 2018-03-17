@@ -5,7 +5,7 @@ import { join, resolve } from 'path';
 import webpack from 'webpack';
 
 // Common config.
-import { distPath, entry, extensions, loaders, plugins, alias, srcPath, title } from './common.config';
+import { distPath, entry, extensions, loaders, plugins, srcPath, title } from './common.config';
 
 export default {
     devtool: false,
@@ -14,21 +14,6 @@ export default {
 
     module: {
         rules: loaders.concat([
-            // Script loaders.
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader',
-                options: {
-                    loaders: {
-                        scss: extract({
-                            fallback: 'style-loader',
-                            use: ['css-loader', 'postcss-loader', 'sass-loader']
-                        })
-                    },
-                    extractCSS: true
-                }
-            },
-
             // Style loaders.
             {
                 test: /\.scss$/,
@@ -79,7 +64,6 @@ export default {
     ]),
 
     resolve: {
-        alias,
         extensions
     }
 };

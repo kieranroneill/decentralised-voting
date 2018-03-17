@@ -8,7 +8,7 @@ module.exports = {
 
     contracts_build_directory: path.join(__dirname, 'dist', 'contracts'),
 
-    migrations_directory: path.join(__dirname, 'migrations'),
+    migrations_directory: path.join(__dirname, 'src', 'migrations'),
 
     networks: {
         development: {

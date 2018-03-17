@@ -1,7 +1,8 @@
---require babel-register
---require test/setup.js
 --full-trace
 --recursive
 --reporter mocha-multi-reporters
 --reporter-options configFile=test/reporter.config.json
+--require babel-register
+--require ignore-styles
+--require test/setup.js
 --timeout 15000
