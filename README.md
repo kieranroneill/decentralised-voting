@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/kieranroneill/decentralised-voting/tree/master.svg?style=shield&circle-token=33b54b560c45e7fe1f6d4e44f069ed2a3f6d6dba)](https://circleci.com/ghkieranroneill/decentralised-voting/tree/master)
+
 # Decentralised Voting System
 
 A simple voting app built on the Ethereum network.
