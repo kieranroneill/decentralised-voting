@@ -6,14 +6,13 @@
         "coverage/**",
         "dist/**",
         "src/**/*.test.js",
-        "src/app/**",
         "src/migrations/**",
         "test/**",
         "webpack/**"
     ],
     "extension": [
         ".js",
-        ".vue"
+        ".jsx"
     ],
     "instrument": false,
     "reporter": [
