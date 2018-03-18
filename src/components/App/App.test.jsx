@@ -1,3 +1,5 @@
+import { expect } from 'chai';
+import { mount, shallow  } from 'enzyme';
 import React from 'react';
 import { default as Web3 } from 'web3';
 

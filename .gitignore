@@ -73,10 +73,9 @@ coverage/
 junit/
 
 ### Build
-dist/
+build/
 
 ### Dependencies
-.truffle-solidity-loader/
 node_modules/
 
 ### Yarn

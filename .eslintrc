@@ -21,8 +21,8 @@
         "spy": true,
         "stub": true
     },
+    "parser": "babel-eslint",
     "parserOptions": {
-        "parser": "babel-eslint",
         "ecmaVersion": 6,
         "sourceType": "module"
     },

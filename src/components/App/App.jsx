@@ -1,8 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+//import { default as contract } from 'truffle-contract';
 
 // Styles.
 import './styles.scss';
+
+// Artifacts.
+import ballotArtifacts from '../../../build/contracts/Ballot.json';
 
 export default class App extends Component {
     static defaultProps = {
@@ -16,6 +20,8 @@ export default class App extends Component {
         super();
 
         this.ballotContract = null;
+
+        console.log(ballotArtifacts);
     }
 
     render() {

@@ -6,7 +6,7 @@ pragma solidity ^0.4.19;
  */
 contract Ballot {
     mapping (bytes32 => uint8) public votes;
-    bytes32[] private candidateList;
+    bytes32[] public candidateList;
 
     /**
      * @notice Constructor.

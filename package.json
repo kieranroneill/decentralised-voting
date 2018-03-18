@@ -11,17 +11,15 @@
     "author": "Kieran O'Neill <kieranroneill@googlemail.com>",
     "license": "SEE LICENSE IN LICENSE.md",
     "scripts": {
-        "build": "cross-env NODE_ENV=\"production\" concurrently \"npm run build:client\"",
-        "build:client": "node -r babel-register node_modules/.bin/webpack --config webpack/webpack.config.js --progress",
-        "compile": "truffle compile",
-        "lint": "eslint --ext .js  --ext .vue .",
-        "migrate": "truffle migrate --network development",
-        "start": "cross-env NODE_ENV=\"development\" concurrently \"npm run start:network\" \"npm run start:client\"",
-        "start:client": "node -r babel-register node_modules/.bin/webpack-dev-server --config webpack/webpack.dev.config.js --progress --host 0.0.0.0",
+        "build": "yarn deploy:development && cross-env NODE_ENV=\"production\" node -r babel-register node_modules/.bin/webpack --config webpack/webpack.config.js --progress",
+        "lint": "eslint --ext .js  --ext .jsx .",
+        "deploy:development": "truffle compile && truffle migrate --network development",
+        "deploy:production": "truffle compile && truffle migrate --network production",
+        "start": "yarn deploy:development && cross-env NODE_ENV=\"development\" node -r babel-register node_modules/.bin/webpack-dev-server --config webpack/webpack.dev.config.js --progress --host 0.0.0.0",
         "start:network": "ganache-cli --port 8545",
-        "test": "cross-env NODE_ENV=\"test\" concurrently \"npm run test:client\" \"npm run test:contracts\"",
-        "test:client": " nyc mocha -- './src/**/*.test.{js,jsx}'",
-        "test:contracts": "truffle migrate --network development && truffle test --network development"
+        "test": "cross-env NODE_ENV=\"test\" concurrently \"yarn test:client\" \"yarn test:contracts\"",
+        "test:client": "nyc mocha -- './src/**/*.test.{js,jsx}'",
+        "test:contracts": "yarn deploy:development && truffle test --network development"
     },
     "devDependencies": {
         "autoprefixer": "^7.2.3",
@@ -51,18 +49,20 @@
         "handlebars-loader": "^1.6.0",
         "html-webpack-plugin": "^2.30.1",
         "ignore-styles": "^5.0.1",
+        "istanbul-instrumenter-loader": "^3.0.0",
         "jsdom": "^11.5.1",
         "json-loader": "^0.5.7",
         "mocha": "^4.0.1",
         "mocha-junit-reporter": "^1.15.0",
         "mocha-multi-reporters": "^1.1.7",
         "node-sass": "^4.5.3",
+        "null-loader": "^0.1.1",
         "nyc": "^11.2.1",
         "postcss-loader": "^1.3.1",
         "sass-loader": "^6.0.6",
         "sinon": "^4.1.3",
         "style-loader": "^0.18.2",
-        "truffle": "^4.0.6",
+        "truffle": "^4.1.3",
         "url-loader": "^0.5.9",
         "webpack": "^3.6.0",
         "webpack-dev-server": "^2.8.2",
@@ -70,9 +70,11 @@
         "webpack-notifier": "^1.5.0"
     },
     "dependencies": {
+        "path": "^0.12.7",
         "prop-types": "^15.6.1",
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
+        "truffle-contract": "^3.0.4",
         "web3": "0.20.1"
     }
 }

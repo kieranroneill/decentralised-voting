@@ -33,7 +33,7 @@ export default {
 
     plugins: plugins.concat([
         new CleanPlugin(['dist'], {
-            root: join(__dirname, '..')
+            root: join(__dirname, '..', 'build')
         }),
         new ExtractTextPlugin({
             filename: 'styles.[hash].css',

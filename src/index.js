@@ -16,7 +16,7 @@ export function onWindowLoad() {
         window.web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:8545'));
     }
 
-    return render(createElement(App, { isNetworkConnected: window.web3.isConnected() }), document.getElementById('app'));
+    return render(createElement(App, { isNetworkRunning: window.web3.isConnected() }), document.getElementById('app'));
 }
 
 window.addEventListener('load', onWindowLoad);
