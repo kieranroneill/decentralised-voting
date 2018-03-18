@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import './styles.scss';
 
 // Artifacts.
-import ballotArtifacts from '../../../build/contracts/Ballot.json';
+//import ballotArtifacts from '../../../build/contracts/Ballot.json';
 
 export default class App extends Component {
     static defaultProps = {
@@ -20,8 +20,6 @@ export default class App extends Component {
         super();
 
         this.ballotContract = null;
-
-        console.log(ballotArtifacts);
     }
 
     render() {

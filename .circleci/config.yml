@@ -66,10 +66,11 @@ jobs:
           keys:
           - node-dependencies-{{ checksum "package.json" }}
 
-      # Install dependencies.
+      # Start a private Ethereum blockchain.
       - run:
           name: Starting the web 3.0
           command: yarn start:network
+          background: true
 
       # Tests.
       - run:

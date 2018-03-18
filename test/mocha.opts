@@ -1,3 +1,4 @@
+--exit
 --full-trace
 --recursive
 --reporter mocha-multi-reporters
