@@ -17,9 +17,9 @@
         "deploy:production": "truffle compile && truffle migrate --network production",
         "start": "yarn deploy:development && cross-env NODE_ENV=\"development\" node -r babel-register node_modules/.bin/webpack-dev-server --config webpack/webpack.dev.config.js --progress --host 0.0.0.0",
         "start:network": "ganache-cli --port 8545",
-        "test": "concurrently \"yarn test:client\" \"yarn test:contracts\"",
+        "test": "yarn deploy:development && yarn test:contracts && yarn test:client",
         "test:client": "cross-env NODE_ENV=\"test\" nyc mocha -- './src/**/*.test.{js,jsx}'",
-        "test:contracts": "yarn deploy:development && truffle test --network development"
+        "test:contracts": "truffle test --network development"
     },
     "devDependencies": {
         "autoprefixer": "^7.2.3",
