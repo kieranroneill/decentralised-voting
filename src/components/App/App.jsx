@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { default as contract } from 'truffle-contract';
+//import { default as contract } from 'truffle-contract';
 
 // Styles.
 import './styles.scss';
