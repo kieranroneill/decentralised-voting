@@ -1,6 +1,5 @@
 {
     "plugins": [
-        "istanbul",
         "transform-class-properties"
     ],
     "presets": [

@@ -23,13 +23,13 @@ describe('components/App', () => {
     });
 
     describe('when the component mounts', () => {
-        it('should have the correct default props', () => {
+        test('should have the correct default props', () => {
             const wrapper = mount(<App />);
 
             expect(wrapper.props().isNetworkRunning).to.equal(false);
         });
 
-        it('should have the correct default private properties', () => {
+        test('should have the correct default private properties', () => {
             const instance = scope.wrapper.instance();
 
             expect(instance).to.have.property('ballotContract');

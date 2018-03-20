@@ -18,7 +18,7 @@
         "start": "yarn deploy:development && cross-env NODE_ENV=\"development\" node -r babel-register node_modules/.bin/webpack-dev-server --config webpack/webpack.dev.config.js --progress --host 0.0.0.0",
         "start:network": "ganache-cli --port 8545",
         "test": "yarn deploy:development && yarn test:contracts && yarn test:client",
-        "test:client": "cross-env NODE_ENV=\"test\" nyc mocha -- './src/**/*.test.{js,jsx}'",
+        "test:client": "cross-env NODE_ENV=\"test\" cross-env JEST_JUNIT_OUTPUT=\"junit/test-results.xml\" jest --config=test/jest.config.js",
         "test:contracts": "truffle test --network development"
     },
     "devDependencies": {
@@ -27,7 +27,6 @@
         "babel-core": "^6.26.0",
         "babel-eslint": "^8.0.0",
         "babel-loader": "^7.1.2",
-        "babel-plugin-istanbul": "^4.1.5",
         "babel-plugin-transform-class-properties": "^6.24.1",
         "babel-polyfill": "^6.26.0",
         "babel-preset-env": "^1.6.1",
@@ -50,13 +49,11 @@
         "handlebars-loader": "^1.6.0",
         "html-webpack-plugin": "^2.30.1",
         "ignore-styles": "^5.0.1",
+        "jest": "^22.4.2",
+        "jest-junit": "^3.6.0",
         "jsdom": "^11.5.1",
         "json-loader": "^0.5.7",
-        "mocha": "^4.0.1",
-        "mocha-junit-reporter": "^1.15.0",
-        "mocha-multi-reporters": "^1.1.7",
         "node-sass": "^4.5.3",
-        "null-loader": "^0.1.1",
         "nyc": "^11.2.1",
         "postcss-loader": "^1.3.1",
         "sass-loader": "^6.0.6",
@@ -66,7 +63,6 @@
         "url-loader": "^0.5.9",
         "webpack": "^3.6.0",
         "webpack-dev-server": "^2.8.2",
-        "webpack-node-externals": "^1.6.0",
         "webpack-notifier": "^1.5.0"
     },
     "dependencies": {

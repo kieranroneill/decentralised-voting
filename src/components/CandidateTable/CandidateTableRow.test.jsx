@@ -23,7 +23,7 @@ describe('<CandidateTableRow />', () => {
     });
 
     describe('when the component mounts', () => {
-        it('should render the correct table columns', () => {
+        test('should render the correct table columns', () => {
             const columns = scope.wrapper.find('td');
 
             expect(columns).to.have.length(2);

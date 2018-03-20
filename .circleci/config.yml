@@ -77,7 +77,7 @@ jobs:
           name: Destroy your Companion Cube or the testing cannot continue
           command: yarn test
           environment:
-            MOCHA_FILE: junit/test-results.xml
+            JEST_JUNIT_OUTPUT: junit/test-results.xml
           when: always
 
       - store_test_results:

@@ -9,9 +9,7 @@ export function createDom() {
         <!DOCTYPE html>
         <html>
             <head></head>
-            <body>
-                <div id="app"></div>
-            </body>
+            <body></body>
         </html>
     `;
 

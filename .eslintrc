@@ -2,6 +2,7 @@
     "env": {
         "browser": true,
         "es6": true,
+        "jest": true,
         "mocha": true,
         "node": true
     },
@@ -11,10 +12,13 @@
     ],
     "globals": {
         "artifacts": true,
+        "assert": true,
         "contract": true,
         "expect": true,
+        "match": true,
         "mount": true,
-        "shallow": true
+        "shallow": true,
+        "stub": true
     },
     "parser": "babel-eslint",
     "parserOptions": {

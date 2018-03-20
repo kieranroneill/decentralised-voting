@@ -9,6 +9,8 @@ import './styles/index.scss';
 import App from './components/App/App';
 
 export function onWindowLoad() {
+    const appElement = document.createElement('div');
+
     if (window.web3) {
         window.web3 = new Web3(window.web3.currentProvider);
     }
@@ -16,7 +18,11 @@ export function onWindowLoad() {
         window.web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:8545'));
     }
 
-    return render(createElement(App, { isNetworkRunning: window.web3.isConnected() }), document.getElementById('app'));
+    appElement.className = 'app';
+
+    document.body.append(appElement);
+
+    return render(createElement(App, { isNetworkRunning: window.web3.isConnected() }), appElement);
 }
 
 window.addEventListener('load', onWindowLoad);
