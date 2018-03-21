@@ -12,8 +12,8 @@
     "license": "SEE LICENSE IN LICENSE.md",
     "scripts": {
         "build": "cross-env NODE_ENV=\"production\" yarn deploy:production && yarn build:main && yarn build:renderer",
-        "build:main": "babel src/main -d build/main --ignore test.js",
-        "build:renderer": "node -r babel-register node_modules/.bin/webpack --config webpack/webpack.config.js --progress",
+        "build:main": "cross-env BABEL_ENV=\"main\" babel src/main -d build/main --ignore test.js",
+        "build:renderer": "cross-env BABEL_ENV=\"renderer\" node -r babel-register node_modules/.bin/webpack --config webpack/webpack.config.js --progress",
         "lint": "eslint --ext .js  --ext .jsx .",
         "deploy:development": "truffle compile && truffle migrate --network development",
         "deploy:production": "truffle compile && truffle migrate --network production",
