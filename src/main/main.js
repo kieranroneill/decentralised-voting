@@ -4,7 +4,7 @@ import { join } from 'path';
 // Utilities.
 import { createWindow, onActivate, onAllWindowsClosed } from './utilities/SystemUtil';
 
-const publicPath = join(__dirname, '..', 'public');
+const publicPath = join(__dirname, '..', 'renderer');
 let mainWindow = null;
 
 app.on('activate', () => onActivate(mainWindow));

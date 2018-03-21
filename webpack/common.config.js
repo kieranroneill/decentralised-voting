@@ -8,8 +8,8 @@ import packageJson from '../package.json';
 
 const uriLimit = 50000; // 50kb
 
-export const distPath = join(__dirname, '..', 'build', 'dist', 'public');
-export const srcPath = join(__dirname, '..', 'src', 'public');
+export const buildPath = join(__dirname, '..', 'build', 'renderer');
+export const srcPath = join(__dirname, '..', 'src', 'renderer');
 export const title = 'Decentralised Voting System';
 
 export const entry = [

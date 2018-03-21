@@ -5,7 +5,7 @@ import { join, resolve } from 'path';
 import webpack from 'webpack';
 
 // Common config.
-import { distPath, entry, extensions, loaders, plugins, srcPath, title } from './common.config';
+import { buildPath, entry, extensions, loaders, plugins, srcPath, title } from './common.config';
 
 export default {
     devtool: false,
@@ -26,14 +26,14 @@ export default {
     },
 
     output: {
-        path: distPath,
+        path: buildPath,
         filename: '[name].[hash].js',
         chunkFilename: '[name].[chunkhash].js'
     },
 
     plugins: plugins.concat([
-        new CleanPlugin(['dist'], {
-            root: join(__dirname, '..', 'build')
+        new CleanPlugin([buildPath], {
+            root: join(__dirname, '..')
         }),
         new ExtractTextPlugin({
             filename: 'styles.[hash].css',
