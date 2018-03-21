@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { configure, mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { assert, match, stub } from 'sinon';
+import { assert, match, mock, stub } from 'sinon';
 
 configure({ adapter: new Adapter() });
 
@@ -14,6 +14,7 @@ const { window } = createDom();
 global.assert = assert;
 global.expect = expect;
 global.match = match;
+global.mock = mock;
 global.mount = mount;
 global.shallow = shallow;
 global.stub = stub;

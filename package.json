@@ -16,6 +16,7 @@
         "deploy:development": "truffle compile && truffle migrate --network development",
         "deploy:production": "truffle compile && truffle migrate --network production",
         "start": "yarn deploy:development && cross-env NODE_ENV=\"development\" node -r babel-register node_modules/.bin/webpack-dev-server --config webpack/webpack.dev.config.js --progress --host 0.0.0.0",
+        "start:electron": "electron -r babel-register src/app/app.js",
         "start:network": "ganache-cli --port 8545",
         "test": "yarn deploy:development && yarn test:contracts && yarn test:client",
         "test:client": "cross-env NODE_ENV=\"test\" cross-env JEST_JUNIT_OUTPUT=\"junit/test-results.xml\" jest --config=test/jest.config.js",
@@ -66,6 +67,7 @@
         "webpack-notifier": "^1.5.0"
     },
     "dependencies": {
+        "electron": "^1.8.4",
         "prop-types": "^15.6.1",
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
