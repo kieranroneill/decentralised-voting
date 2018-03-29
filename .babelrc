@@ -1,21 +1,9 @@
 {
-    "env": {
-        "main": {
-            "plugins": [
-                "transform-class-properties"
-            ],
-            "presets": [
-                [ "env", { "targets": {  "node": "8.2.1" }}]
-            ]
-        },
-        "renderer": {
-            "plugins": [
-                "transform-class-properties"
-            ],
-            "presets": [
-                "env",
-                "react"
-            ]
-        }
-    }
+    "plugins": [
+        "transform-class-properties"
+    ],
+    "presets": [
+        "env",
+        "react"
+    ]
 }

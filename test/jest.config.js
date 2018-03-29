@@ -11,6 +11,7 @@ module.exports = {
     rootDir: '..',
     roots: ['<rootDir>/src/'],
     setupTestFrameworkScriptFile: '<rootDir>/test/setup.js',
+    testEnvironmentOptions: { userAgent: 'node.js', appName: 'Netscape', language: 'en' },
     testResultsProcessor: 'jest-junit',
     verbose: true
 };

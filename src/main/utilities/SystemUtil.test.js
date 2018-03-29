@@ -1,7 +1,7 @@
 import { app } from 'electron';
 
 // Module.
-import { createWindow, onActivate, onAllWindowsClosed } from './SystemUtil';
+import { onActivate, onAllWindowsClosed } from './SystemUtil';
 import * as SystemUtil from './SystemUtil';
 
 describe('app/utilities/SystemUtil', () => {
@@ -54,5 +54,3 @@ describe('app/utilities/SystemUtil', () => {
         });
     });
 });
-
-

@@ -68,7 +68,6 @@ out
 gen
 
 ### Test
-.nyc_output/
 coverage/
 junit/
 
