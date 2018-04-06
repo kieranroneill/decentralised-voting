@@ -5,15 +5,18 @@ import React from 'react';
 import './styles.scss';
 
 const NetworkStatus = props => {
-    let indicatorClassNames = ['network-status__indicator'];
+    const indicatorClassNames = ['network-status__indicator'];
+    let networkConnectionText = 'Network is disconnected';
 
     if (props.isConnected) {
         indicatorClassNames.push('network-status__indicator--is-connected');
+        networkConnectionText = 'Network is connected';
     }
 
     return (
         <div className="network-status">
             <div className={ indicatorClassNames.join(' ') } />
+            <p className="network-status__label">{ networkConnectionText }</p>
         </div>
     );
 };
