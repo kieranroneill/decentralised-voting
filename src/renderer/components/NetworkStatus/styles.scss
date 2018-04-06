@@ -1,14 +1,18 @@
 .network-status {
+  align-items: center;
   display: flex;
   flex-direction: row;
 
   &__indicator {
-    border: 4px;
-    border-color: red;
+    border: 10px solid red;
     border-radius: 50%;
 
     &--is-connected {
       border-color: green;
     }
+  }
+
+  &__label {
+    margin-left: 0.75rem;
   }
 }

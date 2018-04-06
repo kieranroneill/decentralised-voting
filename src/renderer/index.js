@@ -9,7 +9,7 @@ import './styles/index.scss';
 import App from './components/App/App';
 
 export function onWindowLoad() {
-    const appElement = document.createElement('div');
+    const rootElement = document.createElement('div');
 
     if (window.web3) {
         window.web3 = new Web3(window.web3.currentProvider);
@@ -18,11 +18,11 @@ export function onWindowLoad() {
         window.web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:8545'));
     }
 
-    appElement.className = 'app';
+    rootElement.id = 'root';
 
-    document.body.append(appElement);
+    document.body.append(rootElement);
 
-    return render(createElement(App, { isNetworkRunning: window.web3.isConnected() }), appElement);
+    return render(createElement(App, { isNetworkRunning: window.web3.isConnected() }), rootElement);
 }
 
 window.addEventListener('load', onWindowLoad);

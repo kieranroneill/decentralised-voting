@@ -10,7 +10,7 @@ import './styles.scss';
 
 // Components.
 import CandidateTable from '../CandidateTable/CandidateTable';
-import NetworkStatus from '../NetworkStatus/NetworkStatus';
+import Footer from '../Footer/Footer';
 
 export default class App extends Component {
     static defaultProps = {
@@ -28,11 +28,9 @@ export default class App extends Component {
 
     render() {
         return (
-            <div>
-                <h1 className="app-header">Hello World!</h1>
+            <div className="app">
                 <CandidateTable />
-                <p>{ (this.props.isNetworkRunning ? 'Network connected!': 'Network not connected!') }</p>
-                <NetworkStatus isConnected={ this.props.isNetworkRunning }/>
+                <Footer />
             </div>
         );
     }
