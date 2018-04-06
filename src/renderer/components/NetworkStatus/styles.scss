@@ -1,0 +1,14 @@
+.network-status {
+  display: flex;
+  flex-direction: row;
+
+  &__indicator {
+    border: 4px;
+    border-color: red;
+    border-radius: 50%;
+
+    &--is-connected {
+      border-color: green;
+    }
+  }
+}
