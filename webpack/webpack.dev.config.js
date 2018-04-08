@@ -24,13 +24,7 @@ export default {
     ].concat(entry),
 
     module: {
-        rules: [
-            // Style loaders.
-            {
-                test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
-            }
-        ].concat(loaders)
+        rules: loaders
     },
 
     output: {

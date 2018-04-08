@@ -6,10 +6,10 @@ import { default as Web3 } from 'web3';
 import './styles/index.scss';
 
 // Components.
-import App from './components/App/App';
+import App from './App';
 
 export function onWindowLoad() {
-    const rootElement = document.createElement('div');
+    const rootElement = document.createElement('main');
 
     if (window.web3) {
         window.web3 = new Web3(window.web3.currentProvider);
@@ -17,8 +17,6 @@ export function onWindowLoad() {
     else {
         window.web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:8545'));
     }
-
-    rootElement.id = 'root';
 
     document.body.append(rootElement);
 

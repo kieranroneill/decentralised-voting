@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-// Styles.
-import './styles.scss';
-
 // Components.
 import CandidateTableRow from './CandidateTableRow';
 
@@ -17,7 +14,7 @@ export default class CandidateTable extends Component {
 
     render() {
         return (
-            <table className="candidate-table">
+            <table>
                 <tbody>
                 <tr>
                     <th>Candidate</th>

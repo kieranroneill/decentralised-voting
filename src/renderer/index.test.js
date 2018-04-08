@@ -6,7 +6,7 @@ import { default as Web3 } from 'web3';
 import { onWindowLoad } from './index';
 
 // Components.
-import App from './components/App/App';
+import App from './App';
 
 describe('index', () => {
     const scope = {

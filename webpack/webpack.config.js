@@ -1,5 +1,4 @@
 import CleanPlugin from 'clean-webpack-plugin';
-import ExtractTextPlugin, { extract } from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { join, resolve } from 'path';
 import webpack from 'webpack';
@@ -13,16 +12,7 @@ export default {
     entry,
 
     module: {
-        rules: loaders.concat([
-            // Style loaders.
-            {
-                test: /\.scss$/,
-                use: extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'postcss-loader', 'sass-loader']
-                })
-            }
-        ])
+        rules: loaders
     },
 
     output: {
@@ -34,10 +24,6 @@ export default {
     plugins: plugins.concat([
         new CleanPlugin([buildPath], {
             root: join(__dirname, '..')
-        }),
-        new ExtractTextPlugin({
-            filename: 'styles.[hash].css',
-            allChunks: true
         }),
         new HtmlWebpackPlugin({
             inject: 'body',

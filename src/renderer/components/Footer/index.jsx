@@ -4,7 +4,7 @@ import React from 'react';
 import defaults from '../../../common/defaults';
 
 // Components.
-import NetworkStatus from '../NetworkStatus/NetworkStatus';
+import NetworkStatus from './NetworkStatus';
 
 const Footer = () => (
     <footer>

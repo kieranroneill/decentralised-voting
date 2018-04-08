@@ -1,16 +1,19 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import styled from 'styled-components';
 //import { default as contract } from 'truffle-contract';
-
-// Styles.
-import './styles.scss';
 
 // Artifacts.
 //import ballotArtifacts from '../../../build/contracts/Ballot.json';
 
 // Components.
-import CandidateTable from '../CandidateTable/CandidateTable';
-import Footer from '../Footer/Footer';
+import CandidateTable from './components/CandidateTable/index';
+import Footer from './components/Footer/index';
+
+const Wrapper = styled.div`
+  height: 100%;
+  width: 100%;
+`;
 
 export default class App extends Component {
     static defaultProps = {
@@ -28,10 +31,10 @@ export default class App extends Component {
 
     render() {
         return (
-            <div className="app">
+            <Wrapper>
                 <CandidateTable />
                 <Footer />
-            </div>
+            </Wrapper>
         );
     }
 }

@@ -29,6 +29,12 @@ export const loaders = [
         use: 'babel-loader'
     },
 
+    // Style loaders.
+    {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+    },
+
     // Assets loaders.
     {
         test: /\.json$/i,
