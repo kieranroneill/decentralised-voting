@@ -1,56 +1,63 @@
-import { app } from 'electron';
+import { expect } from 'chai';
+import os from 'os';
+import { assert, match, mock } from 'sinon';
 
-// Module.
-import { onActivate, onAllWindowsClosed } from './SystemUtil';
-import * as SystemUtil from './SystemUtil';
+// Mocks.
+import Electron from '../../../test/mocks/electronMock';
 
-describe('app/utilities/SystemUtil', () => {
+// Utilities.
+import { createWindow, onAllWindowsClosed } from './SystemUtil';
+
+describe('main/utilities/SystemUtil', () => {
     const scope = {
-        electronAppMock: null,
-        mainWindow: null
+        electronMock: null,
+        osMock: null
     };
 
     beforeEach(() => {
-        scope.electronAppMock = mock(app);
+        scope.electronMock = new Electron();
+        scope.osMock = mock(os);
     });
 
     afterEach(() => {
-        scope.mainWindow = null;
-
-        scope.electronAppMock.restore();
+        scope.electronMock = null;
+        scope.osMock.restore();
     });
 
     describe('createWindow()', () => {
+        it('should create a main window', () => {
+            const publicPath = '/absolute/path/to/the/where/the/index/is';
+            const mainWindow = createWindow(scope.electronMock, publicPath);
 
-    });
+            expect(mainWindow).to.be.instanceof(scope.electronMock.BrowserWindow);
 
-    describe('onActivate()', () => {
-        test('should create new window if it is null', () => {
-            const createWindowStub = stub(SystemUtil, 'createWindow');
+            assert.calledWith(mainWindow.loadURL, match(publicPath));
+        });
 
-            scope.mainWindow = null;
+        it('should default to using "__dirname" for the publicPath if it is not defined', () => {
+            const mainWindow = createWindow(scope.electronMock);
 
-            onActivate(scope.mainWindow);
+            expect(mainWindow).to.be.instanceof(scope.electronMock.BrowserWindow);
 
-            assert.calledWith(createWindowStub, scope.mainWindow);
-
-            createWindowStub.restore();
+            assert.calledWith(mainWindow.loadURL, match(__dirname));
         });
     });
 
     describe('onAllWindowsClosed()', () => {
-        test('should quit the electron app if it is not macOS', () => {
-            process.platform = 'linux';
+        it('should quit the electron app if it is not macOS', () => {
+            scope.osMock.expects('platform').returns('linux');
 
-            onAllWindowsClosed(scope.electronAppMock);
+            onAllWindowsClosed(scope.electronMock);
 
-            scope.electronAppMock.expects('quit').never();
+            assert.calledOnce(scope.electronMock.app.quit);
         });
 
-        test('should not quit the electron app if it is macOS', () => {
-            onAllWindowsClosed(scope.electronAppMock);
+        it('should not quit the electron app if it is macOS', () => {
+            scope.osMock.expects('platform').returns('darwin');
 
-            scope.electronAppMock.expects('quit').once();
+            onAllWindowsClosed(scope.electronMock);
+
+            assert.notCalled(scope.electronMock.app.quit);
         });
     });
 });

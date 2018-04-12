@@ -1,3 +1,5 @@
+import { expect } from 'chai';
+
 // Contracts.
 const Ballot = artifacts.require('../../src/contracts/Ballot.sol');
 

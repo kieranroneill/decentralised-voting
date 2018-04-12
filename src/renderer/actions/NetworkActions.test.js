@@ -1,3 +1,5 @@
+import { expect } from 'chai';
+
 // Actions.
 import { setNetworkConnectionState } from './NetworkActions';
 

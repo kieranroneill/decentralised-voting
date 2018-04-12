@@ -1,3 +1,5 @@
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
 import React from 'react';
 
 // Component.
@@ -23,7 +25,7 @@ describe('<CandidateTableRow />', () => {
     });
 
     describe('when the component mounts', () => {
-        test('should render the correct table columns', () => {
+        it('should render the correct table columns', () => {
             const columns = scope.wrapper.find('td');
 
             expect(columns).to.have.length(2);

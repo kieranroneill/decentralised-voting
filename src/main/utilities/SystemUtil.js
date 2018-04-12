@@ -1,16 +1,19 @@
-import { BrowserWindow } from 'electron';
+import { platform } from 'os';
 import { resolve } from 'path';
 import { format } from 'url';
 
+// Config.
+import defaults from '../../common/defaults';
+
 /**
  * Should create a new window object using the web page stored in public.
- * @param mainWindow the main window object.
+ * @param electron an instance of electron.
  * @param publicPath [optional] the path to the index.html Defaults to "__dirname".
  */
-export function createWindow(mainWindow, publicPath = __dirname) {
-    mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600
+export function createWindow(electron, publicPath = __dirname) {
+    let mainWindow = new electron.BrowserWindow({
+        height: defaults.window.height,
+        width: defaults.window.width
     });
 
     mainWindow.loadURL(format({
@@ -20,6 +23,8 @@ export function createWindow(mainWindow, publicPath = __dirname) {
     }));
 
     mainWindow.on('closed', () => mainWindow = null);
+
+    return mainWindow;
 }
 
 /**
@@ -34,10 +39,10 @@ export function onActivate(mainWindow) {
 
 /**
  * Called when all windows have been closed.
- * @param app the Electron instance.
+ * @param electron an Electron instance.
  */
-export function onAllWindowsClosed(app) {
-    if (process.platform !== 'darwin') {
-        app.quit();
+export function onAllWindowsClosed(electron) {
+    if (platform() !== 'darwin') {
+        electron.app.quit();
     }
 }

@@ -1,3 +1,5 @@
+import { stub } from 'sinon';
+
 function HttpProvider(host, timeout, user, password) {
     this.host = host || 'http://localhost:8545';
     this.timeout = timeout || 0;

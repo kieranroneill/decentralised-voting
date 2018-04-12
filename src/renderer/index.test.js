@@ -1,5 +1,7 @@
+import { expect } from 'chai';
 import React from 'react';
 import ReactDom from 'react-dom';
+import { assert, stub } from 'sinon';
 
 // Mocks.
 import Web3 from '../../test/mocks/web3Mock';

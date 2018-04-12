@@ -1,3 +1,5 @@
+import { expect } from 'chai';
+
 // Actions.
 import { SET_NETWORK_CONNECTION_STATE } from '../constants/actionTypes';
 

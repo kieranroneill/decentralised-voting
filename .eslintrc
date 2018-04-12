@@ -12,14 +12,7 @@
     ],
     "globals": {
         "artifacts": true,
-        "assert": true,
-        "contract": true,
-        "expect": true,
-        "match": true,
-        "mock": true,
-        "mount": true,
-        "shallow": true,
-        "stub": true
+        "contract": true
     },
     "parser": "babel-eslint",
     "parserOptions": {
