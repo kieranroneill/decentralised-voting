@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -15,23 +14,27 @@ const Label = styled.p`
    margin-left: 0.75rem;
 `;
 
-const NetworkStatus = props => {
-    let networkConnectionText = 'Network is disconnected';
+export default class NetworkStatus extends Component {
+    constructor() {
+        super();
 
-    if (props.isConnected) {
-        networkConnectionText = 'Network is connected';
+        this.state = {
+            isConnected: window.web3.isConnected()
+        };
     }
 
-    return (
-        <Wrapper>
-            <Indicator isConnected={ props.isConnected } />
-            <Label>{ networkConnectionText }</Label>
-        </Wrapper>
-    );
-};
+    render() {
+        let networkConnectionText = 'Network is disconnected';
 
-NetworkStatus.propTypes = {
-    isConnected: PropTypes.bool.isRequired
-};
+        if (this.state.isConnected) {
+            networkConnectionText = 'Network is connected';
+        }
 
-export default NetworkStatus;
+        return (
+            <Wrapper>
+                <Indicator isConnected={ this.state.isConnected } />
+                <Label>{ networkConnectionText }</Label>
+            </Wrapper>
+        );
+    }
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { default as Web3 } from 'web3';
+
+// Mocks.
+import Web3 from '../../test/mocks/web3Mock';
 
 // Module.
 import { onWindowLoad } from './index';
@@ -13,10 +15,10 @@ describe('index', () => {
         createElementStub: null,
         renderStub: null
     };
-    const web3Host = 'http://127.0.1:8545';
+    const web3Host = 'http://to.the.web.3.0';
 
     beforeEach(() => {
-        window.web3 = new Web3(new Web3.providers.HttpProvider(web3Host)); // Using Ganache client.
+        window.web3 = new Web3(new Web3.providers.HttpProvider(web3Host));
 
         scope.createElementStub = stub(React, 'createElement');
         scope.renderStub = stub(ReactDom, 'render');
@@ -30,18 +32,25 @@ describe('index', () => {
     });
 
     describe('onWindowLoad()', () => {
-        test('should wrap the current web3 instance if it is defined', () => {
+        it('should use the current web3 instance', () => {
             onWindowLoad();
 
             expect(window.web3.currentProvider.host).to.equal(web3Host);
         });
 
-        test('should create an element with to render the React app', () => {
+        it('should use the create a new web3 instance if it is not defined', () => {
+            window.web3 = null;
+
             onWindowLoad();
 
-            expect(document.body.firstChild.className).to.include('app');
+            expect(window.web3).to.not.be.null;
+            expect(window.web3.currentProvider.host).to.not.equal(web3Host);
+        });
 
-            assert.calledWith(scope.createElementStub, App, match.object);
+        it('should create an element with to render the React app', () => {
+            onWindowLoad();
+
+            assert.calledWith(scope.createElementStub, App);
             assert.calledOnce(scope.renderStub);
         });
     });

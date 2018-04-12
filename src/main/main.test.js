@@ -23,7 +23,7 @@ describe('main/main', () =>  {
     });
 
     describe('when the app starts', () => {
-        test('should show an initial window', async () => {
+        it('should show an initial window', async () => {
             const count = await scope.app.client.getWindowCount();
 
             expect(count).to.equal(1);

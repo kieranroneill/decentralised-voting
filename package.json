@@ -21,7 +21,8 @@
         "start": "cross-env NODE_ENV=\"development\" electron build/main/main.js",
         "start:renderer": "cross-env NODE_ENV=\"development\" node -r babel-register node_modules/.bin/webpack-dev-server --config webpack/webpack.dev.config.js --progress",
         "start:network": "ganache-cli --port 8545",
-        "test": "cross-env NODE_ENV=\"test\" cross-env JEST_JUNIT_OUTPUT=\"junit/test-results.xml\" yarn deploy:development && yarn build:main && yarn build:renderer && yarn test:contracts && jest --config=test/jest.config.js",
+        "test": "cross-env NODE_ENV=\"test\" yarn test:contracts && yarn test:app",
+        "test:app": "cross-env JEST_JUNIT_OUTPUT=\"junit/test-results.xml\" jest --config=test/jest.config.js",
         "test:contracts": "truffle test --network development"
     },
     "devDependencies": {
@@ -31,6 +32,7 @@
         "babel-eslint": "^8.0.0",
         "babel-loader": "^7.1.2",
         "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "babel-polyfill": "^6.26.0",
         "babel-preset-env": "^1.6.1",
         "babel-preset-react": "^6.24.1",

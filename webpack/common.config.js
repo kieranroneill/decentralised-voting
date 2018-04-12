@@ -13,7 +13,8 @@ export const srcPath = join(__dirname, '..', 'src', 'renderer');
 export const title = 'Decentralised Voting System';
 
 export const entry = [
-    resolve(srcPath, 'index.js')
+    resolve(srcPath, 'index.js'),
+    resolve(srcPath, 'styles', 'index.scss')
 ];
 export const extensions = ['.js', '.jsx'];
 export const loaders = [

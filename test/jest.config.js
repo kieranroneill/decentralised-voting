@@ -7,7 +7,7 @@ module.exports = {
     coverageDirectory: 'coverage',
     moduleFileExtensions: ['js', 'jsx'],
     moduleNameMapper: {
-        '\\.(css|scss)$': '<rootDir>/test/mocks/styleMock.js'
+        'web3(.*)': '<rootDir>/test/mocks/web3Mock.js'
     },
     rootDir: '..',
     roots: ['<rootDir>/src/'],
